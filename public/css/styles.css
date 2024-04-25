@@ -1,0 +1,122 @@
+
+
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+
+}
+
+.mainList
+{
+
+}
+
+/* Cards */
+
+.listing-card {
+    text-align: center;
+    border: none !important;
+    margin-bottom: 2rem;
+    background-color: rgb(235, 235, 235);
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: contain !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.listing-links {
+    text-decoration: none;
+}
+
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    background-color: white;
+    opacity: 0.2;
+}
+
+/* Show Image */
+
+.show-img {
+    height: 50vh;
+}
+
+.btns {
+    display: flex;
+}
+
+#map {
+    height: 400px;
+    width: 80vh;
+}
+
+
+
+
+
+
+/* Renters Page editing  */
+
+/* Renters Main Page */
+.rentOptionsMain {
+    margin: 40px;
+}
+
+.rentOptionsCont {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    gap: 20px;
+}
+
+.rentOptionsCont>div {
+    flex: 20%;
+}
+
+.rentOptionCom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid grey;
+    padding: 50px;
+    gap: 10px;
+    animation: normal;
+    transition: 0.5s;
+}
+
+.rentOptionCom:hover {
+    transform: scale(1.1);
+
+}
+
+.rentImage {
+    width: 200px;
+}
+
+.rentOptionPara {
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+}

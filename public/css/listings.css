@@ -1,0 +1,325 @@
+.singleMain {
+    margin-top: 20px;
+}
+
+.singleInfo {
+    padding: 5%;
+}
+
+.sinngleFeaturesMain {
+    padding: 2%;
+}
+
+.singleAllReviewsCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+}
+
+.singleAllReviewsHead {
+    margin: 20px;
+}
+
+
+
+.perSingleReview {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid rgb(229, 226, 226);
+}
+
+/* .singleAllReviewsCont>div {
+    flex: 30%;
+} */
+
+.sinngleFeaturesMain {
+    margin-bottom: 50px;
+}
+
+.singleFeaturesConti {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+
+.singleFetText {
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+.fetcom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 500px;
+    border: 2px solid rgb(180, 180, 180);
+    padding: 20px;
+    cursor: pointer;
+    animation: normal;
+    transition: 0.4s;
+
+    border: 2px solid black;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* border-radius: 20px; */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.fetcom:hover {
+    transform: scale(1.1);
+}
+
+.singleFetImg {
+    width: 100px;
+    height: 100px;
+}
+
+
+/* Details.ejs */
+.rentinDetilsMain {}
+
+.rentHead {
+    padding: 20px;
+}
+
+.rentingDetailsImgDiv {
+    margin-bottom: 20px;
+}
+
+.rentingDetailsCont {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rentingDetailsInfoDiv {
+    width: 100%;
+}
+
+.rentingDetailsImg {
+    width: 400px;
+}
+
+.rentingDetailsInfoHead {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.rentingDetailsInfoFull {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    /* background-color: red; */
+}
+
+.rentingDetailsInfoFull>div {
+    flex: 20%;
+}
+
+.rentDetImg {
+    width: 120px;
+}
+
+.rentInfocom {
+    font-size: 0.8rem;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    border-radius: 5px;
+    padding: 40px;
+    gap: 10px;
+    background-color: transparent;
+    border: 2px solid black;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    cursor: pointer;
+    animation: normal;
+    transition: 0.5s;
+}
+
+.rentInfocom:hover {
+    transform: scale(1.1);
+}
+
+.rentTakeFormDiv {
+    border: 2px solid rgb(215, 215, 215);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.btnMy {
+    width: 100% !important;
+    display: block;
+}
+
+.myBtn {
+    display: block;
+    margin-bottom: 40px;
+    margin-top: 50px;
+    height: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+    .rentingDetailsImg {
+        width: 200px;
+    }
+
+    .rentingDetailsInfoHead {
+        font-size: 2rem;
+    }
+
+    .rentInfocom:hover {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .rentingDetailsImg {
+        width: 200px;
+    }
+
+    .rentingDetailsInfoHead {
+        font-size: 1.3rem;
+    }
+
+    .rentInfocom:hover {
+        transform: scale(1);
+    }
+}
+
+/* Details Form */
+
+/* Driving License */
+.drivingVeriFull {}
+
+.drivingVeriCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.drivingFullDivBack {
+    /* padding: 70px; */
+    width: 500px;
+    background-image: url('https://images.unsplash.com/photo-1623795457671-600b1223c2db?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+}
+
+.drivingFullDivFront {
+    width: 100%;
+    padding: 100px;
+    background-color: transparent;
+    border: 2px solid black;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* border-radius: 20px; */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+}
+
+.driveInput {
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+/* Place Order Page */
+
+.orderCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    /* background-color: #757575; */
+    background-image: url('https://keraladayz.com/wp-content/uploads/2021/12/Car-Rental-2.png');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+
+
+.orderMain {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    border: 2px solid rgb(74, 74, 174);
+    border-radius: 10px;
+    margin: 30px;
+    padding: 10px;
+    width: 90%;
+    background-color: transparent;
+    border: 2px solid black;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    color: rgb(250, 250, 250);
+    font-size: 1.1rem;
+    animation: normal;
+    transition: 0.3s;
+}
+
+
+.orderDetails {
+    display: flex;
+    /* justify-content: space-around; */
+    gap: 30px;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+.orderCarImg {
+    position: relative;
+    width: 100%;
+    /* height: 40vh; */
+}
+
+.carOrderInfo {
+    width: 80%;
+}
+
+.orderImg {
+    object-fit: contain;
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; */
+}
+
+@media only screen and (max-width: 450px) {
+    .orderMain {
+        font-size: 0.6rem;
+    }
+}

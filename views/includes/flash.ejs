@@ -1,0 +1,112 @@
+<!-- We have used success.length because success is an array and its size should be above 0 to display on the browser pr else it will be shown everywere  -->
+
+<%if(success && success.length){ %>
+
+<div
+  id="successMessage"
+  class="m-3 rounded-md border-l-4 border-green-500 bg-green-100 p-4"
+>
+  <div class="flex items-center justify-between space-x-4">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-6 w-6 text-green-600"
+      >
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+    <div>
+      <p class="text-sm font-medium text-green-600"><%= success %></p>
+    </div>
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-6 w-6 cursor-pointer text-green-600"
+      >
+        <!-- <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line> -->
+      </svg>
+    </div>
+  </div>
+  <script>
+    setTimeout(function () {
+      let successMessage = document.getElementById("successMessage");
+      successMessage.remove();
+    }, 2000);
+  </script>
+</div>
+<%} %> <%if(error && error.length){ %>
+
+<div
+  id="errorMessage"
+  class="m-3 rounded-md border-l-4 border-red-500 bg-red-100 p-4"
+>
+  <div class="flex items-center justify-between space-x-4">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-6 w-6 text-red-600"
+      >
+        <path
+          d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+        ></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+    </div>
+    <div>
+      <p class="text-sm font-medium text-red-600"><%= error %></p>
+    </div>
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="h-6 w-6 cursor-pointer text-red-600"
+      >
+        <!-- <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line> -->
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  setTimeout(function () {
+    let errorMessage = document.getElementById("errorMessage");
+    errorMessage.remove();
+  }, 5000);
+</script>
+
+<%} %>

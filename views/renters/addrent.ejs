@@ -1,0 +1,244 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h1 class="m-3 text-center underline font-bold text-3xl p-3">
+        Enter car details for rent
+      </h1>
+      <form
+        action="/renter/rentadd"
+        method="POST"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3">
+          <label for="name" class="form-label">Enter car name</label>
+          <input
+            placeholder="Car Name"
+            type="text"
+            name="rent[title]"
+            id="name"
+            class="form-control"
+            required
+          />
+          <div class="valid-feedback">Look's good</div>
+          <div class="invalid-feedback">Name Missing</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Enter Description</label>
+          <textarea
+            placeholder="Description"
+            class="form-control"
+            name="rent[description]"
+            id="description"
+            cols="30"
+            rows="6"
+            required
+          ></textarea>
+          <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-5">
+            <label for="years" class="form-label">Purchase year</label>
+            <input
+              placeholder="Purchase year"
+              type="number"
+              name="rent[years]"
+              id="years"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Please enter the no of year used</div>
+          </div>
+
+          <div class="mb-3 col-md-7">
+            <label for="km" class="form-label">Total Kilometers</label>
+            <input
+              placeholder="Total Km"
+              type="number"
+              name="rent[km]"
+              id="km"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">
+              Enter the total kilometers you car has ran
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload Image</label>
+          <input
+            type="file"
+            name="rent[image]"
+            id="image"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Upload an image</div>
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Enter Price</label>
+            <input
+              placeholder="Price"
+              name="rent[price]"
+              id="price"
+              class="form-control"
+              required
+            />
+
+            <div class="invalid-feedback">Enter a valid price</div>
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Enter Country</label>
+            <input
+              placeholder="Country"
+              type="text"
+              name="rent[country]"
+              id="country"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Enter a valid Country</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Enter location</label>
+          <input
+            placeholder="Location"
+            type="text"
+            name="rent[location]"
+            id="location"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Enter a valid Location</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address" class="form-label">Enter pickup address</label>
+          <input
+            placeholder="Address"
+            type="text"
+            name="rent[address]"
+            id="address"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Enter address</div>
+        </div>
+        <div class="mb-3">
+          <label for="seater" class="form-label">Seats</label>
+          <select name="rent[seater]" id="seater" class="form-select" required>
+            <option value="" disabled selected>No of seats</option>
+            <option value="2">2 Seater</option>
+            <option value="2+1">2+1 Seater</option>
+            <option value="4">4 Seater</option>
+            <option value="4+1">4+1 Seater</option>
+            <option value="5">5 Seater</option>
+            <option value="7">7 Seater</option>
+            <option value="8">8 Seater</option>
+          </select>
+          <div class="invalid-feedback">
+            Select the number of seats avilable in your car
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="carType" class="form-label">Car Type</label>
+          <select
+            name="rent[carType]"
+            id="carType"
+            class="form-select"
+            required
+          >
+            <option value="" disabled selected>Select a Car Type</option>
+            <option value="Sports Car">Sports Cars</option>
+            <option value="Convertible Car">Convertible Cars</option>
+            <option value="Muscle Car">Muscle Cars</option>
+            <option value="Luxury Sports Car">Luxury Sports Cars</option>
+            <option value="Supercar">Supercars</option>
+            <option value="Off-Road Vehicle">Off-Road Vehicles</option>
+          </select>
+          <div class="invalid-feedback">Select the type of car</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="carEngine" class="form-label">Engine Type</label>
+          <select
+            name="rent[carEngine]"
+            id="carEngine"
+            class="form-select"
+            required
+          >
+            <option value="" disabled selected>Select Engine Type</option>
+            <option value="Manual">Manual</option>
+            <option value="Automatic">Automatic</option>
+          </select>
+          <div class="invalid-feedback">Select a Engine from the dropdown</div>
+        </div>
+        <div class="mb-3">
+          <label for="fuelType" class="form-label">Fuel Type</label>
+          <select
+            name="rent[fuelType]"
+            id="fuelType"
+            class="form-select"
+            required
+          >
+            <option value="" disabled selected>Type of fuel suitable</option>
+            <option value="petrol">Petrol</option>
+            <option value="diesel">Diesel</option>
+            <option value="cng">Compressed Natural Gas (CNG)</option>
+            <option value="electric">Electric</option>
+          </select>
+          <div class="invalid-feedback">Select the type of fuel</div>
+        </div>
+
+        <button class="btn btn-dark mb-4">Add Car</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- <script>
+    function validateForm() {
+      // Remove the variable declarations here as they are redundant
+
+      let seater = document.getElementById("seater");
+      let selectedseater = seater.options[seater.selectedIndex].value;
+
+      let carType = document.getElementById("carType");
+      let selectedCarType = carType.options[carType.selectedIndex].value;
+
+      let carEngine = document.getElementById("carEngine");
+      let selectedCarEngine = carEngine.options[carEngine.selectedIndex].value;
+
+      let fuelType = document.getElementById("fuelType");
+      let selectedfueltype = fuelType.options[fuelType.selectedIndex].value;
+
+      if (selectedseater === "") {
+        alert("Please select the no of seats");
+        return false;
+      }
+      if (selectedCarType === "") {
+        alert("Please select a car type");
+        return false;
+      }
+      if (selectedCarEngine === "") {
+        alert("Select a Engine from the dropdown");
+        return false;
+      }
+
+      if (selectedfueltype === "") {
+        alert("Select the type of fuel");
+        return false;
+      }
+
+      return true;
+    }
+  </script> -->
+</body>

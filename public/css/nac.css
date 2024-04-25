@@ -1,0 +1,71 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navName {
+    font-size: 3rem;
+    text-align: center;
+    font-family: "Architects Daughter", cursive;
+    flex-grow: 1;
+    /* Make the navigation name take up available space */
+}
+
+.navBurger {
+    margin-left: 10px;
+}
+
+.navBurger a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.navBurger a:hover {
+    text-decoration: underline;
+}
+
+.fa-bars {
+    cursor: pointer;
+}
+
+.navBarProfileLogo {
+    margin: 20px;
+    width: 40px;
+}
+
+@media only screen and (max-width: 540px) {
+
+    .navName {
+        font-size: 2rem;
+    }
+
+    .navBurger a {
+       font-size: 0.7rem;
+    }
+
+    .navBarProfileLogo {
+        margin: 10px;
+        width: 30px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+
+    .navName {
+        font-size: 1.6rem;
+    }
+
+    .navBurger a {
+       font-size: 0.7rem;
+    }
+
+    .navBarProfileLogo {
+        margin: 6px;
+        width: 20px;
+    }
+}

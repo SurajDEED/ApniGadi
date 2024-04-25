@@ -1,0 +1,146 @@
+<% layout('/layouts/boilerplate') %> <% if(currUser) {%>
+<div class="mx-auto mb-5 max-w-7xl px-2 md:px-0">
+  <div class="my-4">
+    <h1 class="text-3xl font-bold">Profile</h1>
+    <p class="mt-2 text-gray-500"></p>
+  </div>
+  <div class="flex justify-center">
+    <div class="flex flex-col justify-center text-start">
+      <div
+        class="relative flex h-[400px] w-full flex-col justify-end rounded-[10px] bg-red-300"
+        style="
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        "
+      >
+        <img
+          src="<%= profileId.image.url %>"
+          alt=""
+          class="z-0 h-full w-full rounded-[10px] object-cover"
+        />
+        <div
+          class="absolute inset-0 rounded-md bg-gradient-to-t from-gray-900 to-transparent"
+        ></div>
+        <div class="absolute bottom-4 left-4">
+          <h1 class="text-xl font-semibold text-white">
+            <%= profileId.name %>
+          </h1>
+          <h6 class="text-base text-white">@ <%= profileId.username %></h6>
+          <a class="text-white underline" href="/logout">Logout</a>
+        </div>
+      </div>
+      <div class="flex justify-center flex-col ">
+        <a class="w-full block mt-4" href="/account/profile/<%= profileId._id %>">
+          <button
+            type="button"
+            class="inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold text-white hover:bg-white-100"
+          >
+            Edit Profile
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="ml-2 h-4 w-4"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </a>
+
+        <% if(profileId.role === 'renter') {%>
+          <a class="w-full mt-4" href="/renter/">
+            <button
+              type="button"
+              class="inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold text-white hover:bg-black/80"
+            >
+              Renters Profile
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="ml-2 h-4 w-4"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </a>
+          <% } else {%> 
+            <a class="w-full mt-4" href="/listings/<%=profileId._id%>/myorders">
+              <button
+                type="button"
+                class="inline-flex items-center rounded-md bg-black px-3 py-2 text-sm font-semibold text-white hover:bg-black/80"
+              >
+                My orders
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="ml-2 h-4 w-4"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </a>
+            <% } %>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<% } else {%>
+
+<div class="mx-auto mb-5 max-w-7xl px-2 md:px-0">
+  <div class="my-4">
+    <h1 class="text-3xl font-bold">Profile</h1>
+    <p class="mt-2 text-gray-500"></p>
+  </div>
+  <div class="flex justify-center">
+    <div class="flex flex-col justify-center text-start">
+      <div
+        class="relative flex h-[300px] w-full flex-col justify-end rounded-[10px] bg-red-300"
+        style="
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        "
+      >
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/026/960/842/non_2x/invalid-user-profile-important-caution-notice-of-personal-fake-account-internet-person-id-and-fraud-risk-data-alert-male-user-warning-icon-illustration-solid-glyph-style-eps-10-vector.jpg"
+          alt=""
+          class="z-0 h-full w-full rounded-[10px] object-cover"
+        />
+        <div
+          class="absolute inset-0 rounded-md bg-gradient-to-t from-gray-900 to-transparent"
+        ></div>
+        <div class="absolute bottom-4 left-4">
+          <a class="text-white underline" href="/login"
+            >Please Login to see your profile</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% }%>

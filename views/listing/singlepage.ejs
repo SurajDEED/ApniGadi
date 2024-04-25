@@ -1,0 +1,337 @@
+<% layout('/layouts/boilerplate') %>
+
+<section class="overflow-hidden">
+  <div class="mx-auto max-w-5xl px-5 py-24">
+    <div class="mx-auto flex flex-wrap items-center">
+      <img
+        alt="car img"
+        class="h-64 w-full rounded object-contain lg:h-100 lg:w-1/2"
+        src="<%= singleList.image.url%>"
+      />
+      <div class="mt-6 w-full lg:mt-0 lg:w-1/2 lg:pl-10">
+        <h2 class="text-sm font-semibold tracking-widest text-gray-500">
+          Owned by <%= singleList.owner.username %>
+        </h2>
+        <h1 class="my-4 text-3xl font-semibold text-black">
+          <%= singleList.title %>
+        </h1>
+        <div class="my-4 flex items-center">
+          <span class="flex items-center space-x-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-yellow-500"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              ></polygon>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-yellow-500"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              ></polygon>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-yellow-500"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              ></polygon>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-yellow-500"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              ></polygon>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-yellow-500"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              ></polygon>
+            </svg>
+            <span class="ml-3 inline-block text-xs font-semibold">
+              4 Reviews
+            </span>
+          </span>
+        </div>
+        <p class="leading-relaxed"><%= singleList.description %></p>
+        <div
+          class="mb-5 mt-6 flex items-center border-b-2 border-gray-100 pb-5"
+        >
+          <div class="mb-4">
+            <p class="mb-3">Registration Year : <%= singleList.years %></p>
+            <p class="mb-3">
+              Total kilometers from the day of registration: <%= singleList.km
+              %> km
+            </p>
+            <p class="mb-3">Renting Place: <%= singleList.location %></p>
+            <p class="mb-3">Country: <%= singleList.country %></p>
+            <p class="mb-3"></p>
+            <div class="ml-auto flex items-center">
+              <div class="relative"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="title-font text-xl font-bold text-gray-900">
+            &#8377;<%= singleList.price.toLocaleString("en-IN") %> /day
+          </span>
+          <form action="<%= singleList._id%>/rentdetails" method="get">
+            <button
+              class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Rent Now
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="mx-auto mb-5 max-w-7xl px-2 lg:px-8">
+  <div
+    class="grid grid-cols-1 gap-y-8 text-center sm:grid-cols-2 sm:gap-12 lg:grid-cols-4"
+  >
+    <div>
+      <div
+        class="mx-auto flex h-20 w-20 items-center justify-center rounded-full"
+      >
+        <img
+          src="https://res.cloudinary.com/dmwtxx5qv/image/upload/v1712938712/cardata_dev/car-chair_yfty8c.png"
+          alt=""
+        />
+      </div>
+      <h3 class="mt-8 text-lg font-semibold text-black">
+        <%= singleList.seater %> Seater
+      </h3>
+      <!-- <p class="mt-4 text-sm text-gray-600">
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit.
+      </p> -->
+    </div>
+    <div>
+      <div
+        class="mx-auto flex h-20 w-20 items-center justify-center rounded-full"
+      >
+        <img
+          src="https://res.cloudinary.com/dmwtxx5qv/image/upload/v1712939856/cardata_dev/sport-car_uynzso.png"
+          alt=""
+        />
+      </div>
+      <h3 class="mt-8 text-lg font-semibold text-black">
+        <%= singleList.carType %>
+      </h3>
+      <!-- <p class="mt-4 text-sm text-gray-600">
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit.
+      </p> -->
+    </div>
+    <div>
+      <div
+        class="mx-auto flex h-20 w-20 items-center justify-center rounded-full"
+      >
+        <img
+          src="https://res.cloudinary.com/dmwtxx5qv/image/upload/v1712939855/cardata_dev/engineering_zawx03.png"
+          alt=""
+        />
+      </div>
+      <h3 class="mt-8 text-lg font-semibold text-black">
+        <%= singleList.carEngine %>
+      </h3>
+      <!-- <p class="mt-4 text-sm text-gray-600">
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit.
+      </p> -->
+    </div>
+    <div>
+      <div
+        class="mx-auto flex h-20 w-20 items-center justify-center rounded-full"
+      >
+        <img
+          src="https://res.cloudinary.com/dmwtxx5qv/image/upload/v1712939854/cardata_dev/fuel_1_bpjmtd.png"
+          alt=""
+        />
+      </div>
+      <h3 class="mt-8 text-lg font-semibold text-black">
+        <%= singleList.fuelType %>
+      </h3>
+      <!-- <p class="mt-4 text-sm text-gray-600">
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit.
+      </p> -->
+    </div>
+  </div>
+</div>
+
+<% if(currUser) {%>
+<div class="singleReviewMain">
+  <h4 class="mb-3 text-3xl">Leave a Review</h4>
+  <hr />
+  <div class="p-5">
+    <form
+      action="/listings/<%= singleList.id %>/review"
+      method="post"
+      novalidate
+      class="needs-validation"
+    >
+      <div class="mb-3 mt-3 ">
+        <label class="form-label" for="rating">Rating</label>
+        <fieldset class="starability-slot">
+          <input
+            type="radio"
+            id="no-rate"
+            class="input-no-rate"
+            name="reviews[rating]"
+            value="1"
+            checked
+            aria-label="No rating."
+          />
+          <input
+            type="radio"
+            id="first-rate1"
+            name="reviews[rating]"
+            value="1"
+          />
+          <label for="first-rate1" title="Terrible">1 star</label>
+          <input
+            type="radio"
+            id="first-rate2"
+            name="reviews[rating]"
+            value="2"
+          />
+          <label for="first-rate2" title="Not good">2 stars</label>
+          <input
+            type="radio"
+            id="first-rate3"
+            name="reviews[rating]"
+            value="3"
+          />
+          <label for="first-rate3" title="Average">3 stars</label>
+          <input
+            type="radio"
+            id="first-rate4"
+            name="reviews[rating]"
+            value="4"
+          />
+          <label for="first-rate4" title="Very good">4 stars</label>
+          <input
+            type="radio"
+            id="first-rate5"
+            name="reviews[rating]"
+            value="5"
+          />
+          <label for="first-rate5" title="Amazing">5 stars</label>
+        </fieldset>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="comment">Comments</label>
+        <br />
+        <textarea
+          class="form-control"
+          name="reviews[comment]"
+          id="comments"
+          cols="30"
+          rows="6"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Comments cannot be empty</div>
+      </div>
+      <button class="btn btn-dark offset-5 mt-3 mb-3">Submit</button>
+    </form>
+    <% } %>
+    <hr />
+  </div>
+</div>
+<% if(singleList.reviews.length > 0){ %>
+<div class="p-2">
+  <h4 class="text-black-800 text-center mb-3 text-3xl">All Reviews</h4>
+
+  <% for(reviews of singleList.reviews){ %>
+  <div class="mx-auto mb-5 mr-2 ml-2 max-w-xl rounded-md bg-gray-900 p-1">
+    <div class="flex flex-col rounded-md bg-white">
+      <div class="flex flex-1 flex-col justify-between p-8">
+        <div class="mb-4 flex space-x-2">
+          <p class="starability-result" data-rating="<%= reviews.rating %>"></p>
+        </div>
+        <div class="flex-1 pt-2">
+          <blockquote>
+            <p class="text-lg text-gray-800"><%= reviews.comment %></p>
+          </blockquote>
+        </div>
+        <div class="mt-8 border-t border-gray-300 pt-4 dark:border-gray-800">
+          <div class="flex items-center">
+            <img
+              class="h-10 w-10 flex-shrink-0 rounded-full object-cover"
+              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
+              alt=""
+            />
+            <div class="ml-3 min-w-0">
+              <p class="truncate text-base font-semibold text-gray-800">
+                <%= reviews.author.username %>
+              </p>
+
+              <form
+                action="/listings/<%= singleList._id %>/review/<%= reviews.id %>/?_method=DELETE"
+                method="post"
+              >
+                <% if(currUser) {%>
+                <button class="btn btn-outline-danger btn-sm">Delete</button>
+                <% } %>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %> <% } %>
+</div>

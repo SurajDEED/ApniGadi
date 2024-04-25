@@ -1,0 +1,208 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h1 class="m-3 text-center text-3xl underline p-2 font-bold">
+      Edit your car
+    </h1>
+    <form
+      method="POST"
+      action="/renter/<%= editList._id %>/singleCar/edit?_method=PUT"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3 mt-3">
+        <label for="title" class="form-label">Edit title</label>
+        <input
+          type="text"
+          name="listing[title]"
+          value="<%= editList.title %>"
+          id="title"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Title cannot be empty</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="description" class="form-label">Edit Description</label>
+        <br />
+        <br />
+        <textarea
+          class="form-control"
+          name="listing[description]"
+          id="description"
+          cols="30"
+          rows="10"
+          required
+        >
+  <%= editList.description %></textarea
+        >
+        <div class="invalid-feedback">Description cannot be empty</div>
+      </div>
+      <div class="mb-3 mt-3">
+        Original Image <br />
+        <img class="max-w-xs m-2" src="<%=originalImageUrl%>" alt="" />
+      </div>
+
+      <div>
+        <label for="image" class="form-label">Upload a new image</label>
+        <input type="file" name="listing[image]" class="form-control" />
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4 mt-3">
+          <label for="price" class="form-label">Edit Price</label>
+          <input
+            type="number"
+            name="listing[price]"
+            class="form-control"
+            value="<%= editList.price %>"
+            id="price"
+            required
+          />
+          <div class="invalid-feedback">Price cannot be empty</div>
+        </div>
+
+        <div class="mb-3 col-md-8 mt-3">
+          <label for="country" class="form-label">Edit Country</label>
+          <input
+            type="text"
+            name="listing[country]"
+            class="form-control"
+            value="<%= editList.country %>"
+            id="country"
+            required
+          />
+          <div class="invalid-feedback">Country cannot be empty</div>
+        </div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="location" class="form-label">Edit location</label>
+        <input
+          type="text"
+          name="listing[location]"
+          class="form-control"
+          value="<%= editList.location %>"
+          id="location"
+          required
+        />
+        <div class="invalid-feedback">Location cannot be empty</div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="mb-3 col-md-5">
+          <label for="years" class="form-label">Buying year</label>
+          <input
+            placeholder="Years brought"
+            type="number"
+            name="listing[years]"
+            id="years"
+            value="<%= editList.years %>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter the no of year used</div>
+        </div>
+
+        <div class="mb-3 col-md-7">
+          <label for="km" class="form-label">Total Kilometers</label>
+          <input
+            placeholder="Total Km"
+            type="number"
+            name="listing[km]"
+            id="km"
+            value="<%= editList.km %>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">
+            Enter the total kilometers you car has ran
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="address" class="form-label">Edit pickup address</label>
+        <input
+          placeholder="Address"
+          type="text"
+          name="listing[address]"
+          id="address"
+          value="<%= editList.address %>"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Enter address</div>
+      </div>
+      <div class="mb-3">
+        <label for="seater" class="form-label">Seats</label>
+        <select name="listing[seater]" id="seater" class="form-select" required>
+          <option value="" disabled selected>No of seats</option>
+          <option value="2">2 Seater</option>
+          <option value="2+1">2+1 Seater</option>
+          <option value="4">4 Seater</option>
+          <option value="4+1">4+1 Seater</option>
+          <option value="5">5 Seater</option>
+          <option value="7">7 Seater</option>
+          <option value="8">8 Seater</option>
+        </select>
+        <div class="invalid-feedback">
+          Select the number of seats avilable in your car
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="carType" class="form-label">Car Type</label>
+        <select
+          name="listing[carType]"
+          id="carType"
+          class="form-select"
+          required
+        >
+          <option value="" disabled selected>Select a Car Type</option>
+          <option value="Sports Car">Sports Cars</option>
+          <option value="Convertible Car">Convertible Cars</option>
+          <option value="Muscle Car">Muscle Cars</option>
+          <option value="Luxury Sports Car">Luxury Sports Cars</option>
+          <option value="Supercar">Supercars</option>
+          <option value="Off-Road Vehicle">Off-Road Vehicles</option>
+        </select>
+        <div class="invalid-feedback">Select the type of car</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="carEngine" class="form-label">Engine Type</label>
+        <select
+          name="listing[carEngine]"
+          id="carEngine"
+          class="form-select"
+          required
+        >
+          <option value="" disabled selected>Select Engine Type</option>
+          <option value="Manual">Manual</option>
+          <option value="Automatic">Automatic</option>
+        </select>
+        <div class="invalid-feedback">Select a Engine from the dropdown</div>
+      </div>
+      <div class="mb-3">
+        <label for="fuelType" class="form-label">Fuel Type</label>
+        <select
+          name="listing[fuelType]"
+          id="fuelType"
+          class="form-select"
+          required
+        >
+          <option value="" disabled selected>Type of fuel suitable</option>
+          <option value="petrol">Petrol</option>
+          <option value="diesel">Diesel</option>
+          <option value="cng">Compressed Natural Gas (CNG)</option>
+          <option value="electric">Electric</option>
+        </select>
+        <div class="invalid-feedback">Select the type of fuel</div>
+      </div>
+
+      <button class="btn btn-dark mt-3 mb-4">Update Car</button>
+    </form>
+  </div>
+</div>

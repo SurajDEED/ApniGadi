@@ -1,0 +1,73 @@
+<% layout('/layouts/boilerplate') %>
+
+<div
+  class="mx-auto flex justify-center w-full max-w-5xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-4"
+>
+  <div class="rounded-md border">
+    <img
+      src="<%= singleList.image.url %>"
+      alt="Laptop"
+      class="object-contain w-full rounded-md md:aspect-auto md:h-[300px] lg:h-[200px]"
+    />
+    <div class="p-4">
+      <h1 class="inline-flex items-center text-lg font-semibold">
+        <%= singleList.title %>
+      </h1>
+      <p class="mt-3 text-sm text-gray-600"><%= singleList.description %></p>
+
+      <p class="mt-3 text-sm text-gray-600">
+        <span class="text-black"><b>Renting place:</b> </span> <%=
+        singleList.location %>
+      </p>
+
+      <p class="mt-3 text-sm text-gray-600">
+        <span class="text-black"><b>Brought on:</b> </span> <%= singleList.years
+        %>
+      </p>
+      <p class="mt-3 text-sm text-gray-600">
+        <span class="text-black"><b>Total Km:</b> </span> <%= singleList.km %>
+      </p>
+      <p class="mt-3 text-sm text-gray-600">
+        <span class="text-black"><b>Price :</b> </span> &#8377;<%=
+        singleList.price.toLocaleString("en-IN") %> /day
+      </p>
+
+      <p class="mt-3 text-sm text-gray-600">
+        <span class="text-black"><b>Seat Type:</b> </span><%= singleList.seater
+        %> Seater
+      </p>
+
+      <p class="mt-3 text-sm text-gray-600">
+        <span class="text-black"><b>Car Type:</b> </span><%= singleList.carType
+        %>
+      </p>
+
+      <p class="mt-3 text-sm text-gray-600">
+        <span class="text-black"><b>Engine Type:</b> </span><%=
+        singleList.carEngine %>
+      </p>
+
+      <p class="mt-3 mb-3 text-sm text-gray-600">
+        <span class="text-black"><b>Fuel Type:</b> </span><%=
+        singleList.fuelType %>
+      </p>
+
+      <a
+        href="/renter/<%= singleList._id %>/singleCar/edit"
+        class="text-center rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+      >
+        Edit List
+      </a>
+      <form
+        method="POST"
+        action="/renter/<%= singleList._id %>/singleCar/edit?_method=DELETE"
+      >
+        <button
+          class="mt-4 text-center w-full rounded-sm bg-gray-500 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        >
+          Delete car
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
