@@ -176,22 +176,24 @@ module.exports.verifyOtp = async (req, res) => {
                         const registerCustomer = new Customer({ userId })
                         await registerCustomer.save();
                         console.log(registerCustomer)
-                        req.flash('success', "User was registered successfully !!");
-                        res.redirect('/login');
+                        req.login(registredUser, (err) => {
+                            if (err) {
+                                return next(err);
+                            }
+                            req.flash('success', "User was registered successfully !!");
+                            res.redirect('/listings')
+
+                        })
 
                     } catch (e) {
                         console.log(e);
                     }
                     // console.log("The registered customer is :--> " + registerCustomer);
-                    // req.login(registredUser, (err) => {
-                    //     if (err) {
-                    //         return next(err);
-                    //     }
-                    // })
+
                 }
 
             } else {
-                res.redirect('otpverification')
+                res.redirect('/otpverification')
             }
         } else {
             console.log("Too many attemts please try agian later");

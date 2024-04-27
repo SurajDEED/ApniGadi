@@ -4,7 +4,7 @@ const User = require('../models/users.js');
 const Orders = require('../models/orders.js');
 const axios = require('axios');
 const Razorpay = require('razorpay');
-const { RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET } = process.env;
+const { DLKEY } = process.env;
 
 module.exports.index = async (req, res) => {
     const totalListing = await Listing.find({});
@@ -116,7 +116,7 @@ module.exports.checkDlDetails = async (req, res) => {
             url: 'https://kyc-api.surepass.io/api/v1/driving-license/driving-license',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMTgxNzE5MiwianRpIjoiZWJhZDUyNGMtZDRlNy00Y2M4LWI2YjAtNjNhNDQwY2RhNWU0IiwidHlwZSI6ImFjY2VzcyIsImlkZW50aXR5IjoiZGV2LnN1cmFqMTJAc3VyZXBhc3MuaW8iLCJuYmYiOjE3MTE4MTcxOTIsImV4cCI6MjAyNzE3NzE5MiwidXNlcl9jbGFpbXMiOnsic2NvcGVzIjpbInVzZXIiXX19.tSlRuHYSv7EAYIepbDp-T5UbudeHf75DpV0r5GVs-WY'
+                'Authorization': DLKEY
             },
             data: data
         };
@@ -127,18 +127,34 @@ module.exports.checkDlDetails = async (req, res) => {
                 console.log(JSON.stringify(response.data.success))
                 if (response.data.success === true) {
 
+                    req.session.orderDetails = {
+                        ...req.session.orderDetails,
+                        dlDetails: {
+                            dlNumber: dlNumber,
+                            dob: dob,
+                        }
+
+                    }
                     let details = req.session.orderDetails;
-                    let order = new Orders(details);
-                    order.dlDetails.dlNumber = dlNumber
-                    order.dlDetails.dob = dob
-                    console.log("The order is " + order);
-                    await order.save();
-                    const orderId = order._id;
-                    console.log("The order id is from the dl page " + orderId);
-                    res.redirect(`/listings/${orderId}/placeOrder`);
+                    // console.log(details)
+                    console.log("The order is " + details);
+                    const serializedOrder = JSON.stringify(details);
+
+                    res.cookie('order', serializedOrder, {
+                        maxAge: 86400000,
+                        httpOnly: true
+                    });
+
+                    console.log(req.cookies.order);
+                    // await order.save();
+                    // const orderId = order._id;
+                    // console.log("The order id is from the dl page " + orderId);
+                    console.log("Verfied Everything now")
+                    res.redirect(`/listings/${id}/placeOrder`);
                 }
             })
             .catch((error) => {
+                console.log(error);
                 req.flash('error', "Driving License Verification Failed Order Cancelled !")
                 res.redirect(`/listings/${id}/`)
 
@@ -178,25 +194,37 @@ function validateDate(dob) {
 
 
 module.exports.orderPageRender = async (req, res) => {
-    let { id } = req.params;
-    console.log("The order Id is " + id)
-    let order = await Orders.findById(id).populate('carId').populate('owner').populate('customer');
-    console.log(order.carId);
-    let listId = order.carId._id;
-    let list = await Listing.findById(listId);
-    console.log("The list is"+list.rentStatus)
-    list.rentStatus = 'booked'
-    list.save();
-    console.log("Now the new list is"+list)
-    res.render('listing/placeorder.ejs', { order, env: process.env });
+    const orderCookie = req.cookies.order;
+    console.log("The order cookiee is " + orderCookie);
+    const orderDet = JSON.parse(orderCookie);
+    console.log(orderDet)
+    let carId = await Listing.findById(orderDet.carId);
+    console.log(carId);
 
+    let owner = await User.findById(orderDet.owner);
+    console.log(owner);
+
+    let customer = await User.findById(orderDet.customer);
+    console.log(customer);
+    res.render('listing/placeorder.ejs', { carId, owner, customer, orderDet, env: process.env });
 }
 
-// module.exports.createNewOrder = async (req, res) => {
-//     console.log(req.session.orderDetails)
-//     let orderDet = req.session.orderDetails;
-//     res.render('listing/placeorder.ejs', { orderDet });
-// }
+module.exports.orderConfrim = async (req, res) => {
+    console.log("Hiii")
+    const orderCookie = req.cookies.order;
+    console.log("The order cookiee is " + orderCookie);
+    const orderDet = JSON.parse(orderCookie);
+    let order = new Orders(orderDet);
+    console.log("Ne order created " + order);
+    order.save();
+    let listId = order.carId._id;
+    let list = await Listing.findById(listId);
+    console.log("The list is" + list.rentStatus)
+    list.rentStatus = 'booked'
+    list.save();
+    console.log("Now the new list is" + list)
+    res.redirect(`/listings/${order.customer._id}/myorders`)
+}
 
 module.exports.razorPayIntegrate = async (req, res) => {
 }
@@ -229,3 +257,6 @@ async function populateOrders(orders) {
     }
 }
 
+module.exports.aboutUsePage = (req, res) => {
+    res.render('listing/aboutus.ejs');
+}

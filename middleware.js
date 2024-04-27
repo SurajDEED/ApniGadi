@@ -5,7 +5,7 @@ const { reviewSchema } = require('./schema.js');
 const Reviews = require('./models/reviews.js');
 
 module.exports.isLoggedIn = (req, res, next) => {
-    console.log(req.user);
+
     if (!req.isAuthenticated()) {
         // We have to save the path only when the user was not logged in 
         req.session.redirectUrl = req.originalUrl;
@@ -68,10 +68,10 @@ module.exports.validateReview = (req, res, next) => {
 
 
 module.exports.validateRoute = (req, res, next) => {
-    // if (!req.user && req.user.role === 'customer') {
+    if (req.user && req.user.role === 'customer') {
         next();
-    // } else {
-        // req.flash('error', 'Renter has not access to the customer portal')
-        // res.redirect('/login');
-    // }
+    } else {
+        req.flash('error', 'Renter does not have access to customer portal')
+        res.redirect('/listings');
+    }
 }

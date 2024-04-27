@@ -10,21 +10,21 @@
                 <div class="flex-shrink-0">
                   <img
                     class="h-20 w-20 rounded-lg border border-gray-200 object-contain"
-                    src="<%= order.carId.image.url %>"
+                    src="<%= carId.image.url %>"
                     alt="carimg"
                   />
                 </div>
                 <div class="ml-5 flex flex-col justify-between">
                   <div class="flex-1">
                     <p class="text-sm font-bold text-gray-900">
-                      <%= order.carId.title %>
+                      <%= carId.title %>
                     </p>
                   </div>
                 </div>
               </div>
               <div class="ml-auto flex flex-col items-end justify-between">
                 <p class="text-right text-sm font-bold text-gray-900">
-                  ₹ <%= order.carId.price %>
+                  ₹ <%= carId.price %>
                 </p>
               </div>
             </li>
@@ -33,7 +33,7 @@
           <ul class="mt-6 space-y-3">
             <li class="flex items-center justify-between">
               <p class="text-sm font-medium">Total</p>
-              <p class="text-sm font-bold">₹ <%=order.amount%></p>
+              <p class="text-sm font-bold">₹ <%=orderDet.amount%></p>
             </li>
           </ul>
         </div>
@@ -49,13 +49,13 @@
                 Order Number: #9876567890
               </p>
               <p class="fontmedium mt-3 text-xs text-gray-700">
-                Cutomer Name: <%= order.customer.name %>
+                Cutomer Name: <%= customer.name %>
               </p>
               <p class="fontmedium mt-3 text-xs text-gray-700">
-                Address : <%= order.customerAddress %>
+                Address : <%= orderDet.customerAddress %>
               </p>
               <p class="fontmedium mt-3 text-xs text-gray-700">
-                DL No: KA 1234567891234
+                DL No: <%= orderDet.dlDetails.dlNumber %>
               </p>
               <p id="currentDate" class="text-xs font-medium text-gray-700">
                 Date:
@@ -67,19 +67,19 @@
               </h2>
 
               <p class="mt-2 text-xs font-medium text-gray-700">
-                Renter Name : <%= order.owner.name %>
+                Renter Name : <%= owner.name %>
               </p>
               <p class="mt-2 text-xs font-medium text-gray-700">
-                Renter Mail: <%= order.owner.email %>
+                Renter Mail: <%= owner.email %>
               </p>
               <p class="mt-2 text-xs font-medium text-gray-700">
-                Pick up address : <%=order.carId.address %>
+                Pick up address : <%=carId.address %>
               </p>
               <p class="mt-2 text-xs font-medium text-gray-700">
-                Pickup Location: <%= order.carId.location %>
+                Pickup Location: <%= carId.location %>
               </p>
               <p class="mt-2 text-xs font-medium text-gray-700">
-                Return date : <%= order.dropDate %>
+                Return date : <%= orderDet.dropDate %>
               </p>
             </div>
             <div class="py-6">
@@ -114,7 +114,7 @@
   document.getElementById("currentDate").innerHTML = `Date: ${formattedDate}`;
 
   const paymentHandler = async (e) => {
-    let orderAmt = "<%= JSON.stringify(order.amount) %>";
+    let orderAmt = "<%= JSON.stringify(orderDet.amount) %>";
     console.log(orderAmt);
     let tempamount = parseInt(orderAmt);
     let multipliedAmount = tempamount * 100;
@@ -134,10 +134,10 @@
 
     const order = await response.json();
     console.log(order);
-    let orderDet = "<%= JSON.stringify(order) %>";
+    let orderDet = "<%= JSON.stringify(orderDet) %>";
     console.log(orderDet);
-    let carDet = "<%= JSON.stringify(order.carId) %>";
-    let customerDet = "<%= JSON.stringify(order.customer) %>";
+    let carDet = "<%= JSON.stringify(carId) %>";
+    let customerDet = "<%= JSON.stringify(customer) %>";
 
     let razorpay_key_id = "<%=env.RAZORPAY_KEY_ID%>";
     let options = {
@@ -148,31 +148,7 @@
       description: "Test Transaction",
       image: "https://example.com/your_logo",
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      handler: async function (response) {
-        console.log(response);
-        let razorpay_payment_id = response.razorpay_payment_id;
-        let razorpay_order_id = response.razorpay_order_id;
-        let razorpay_signature = response.azorpay_signature;
-        // const body = {
-        //   ...response,
-        // };
-        const validateRes = await fetch(
-          "http://localhost:8080/order/validate",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              razorpay_payment_id,
-              razorpay_order_id,
-              razorpay_signature,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        // const jsonRes = await validateRes.json();
-        // console.log(jsonRes)
-      },
+      callback_url: "/listings/orderconfirmed",
       prefill: {
         //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
         name: customerDet.name, //your customer's name
@@ -187,7 +163,9 @@
       },
     };
     var rzp1 = new window.Razorpay(options);
-    rzp1.on("payment.failed", function (response) {});
+    rzp1.on("payment.failed", function (response) {
+      console.log("The payment has failed");
+    });
     rzp1.open();
     e.preventDefault();
   };

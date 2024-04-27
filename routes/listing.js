@@ -11,31 +11,34 @@ const upload = multer({ storage })
 
 
 router.route('/')
-    .get(validateRoute,wrapAsync(listingController.index))
+    .get(wrapAsync(listingController.index))
     .post(isLoggedIn, upload.single('listing[image]'), wrapAsync(listingController.createNewList))
-router.route('/order').post(validateRoute,listingController.razorPayIntegrate)
-router.route('/:id/placeOrder').get(validateRoute,listingController.orderPageRender);
-router.route('/:id/rentdetails/drivinglicence').get(validateRoute,listingController.renderDlPage)
-router.route('/submit-form').post(validateRoute,listingController.checkDlDetails)
-router.route('/:id/myorders').get(isLoggedIn, validateRoute, listingController.renderMyOrdersPage)
 
+router.route('/about').get(listingController.aboutUsePage)
+router.route('/order').post(validateRoute, wrapAsync(listingController.razorPayIntegrate))
+router.route('/:id/placeOrder').get(isLoggedIn, wrapAsync(listingController.orderPageRender));
+router.route('/orderconfirmed').post(isLoggedIn,wrapAsync(listingController.orderConfrim));
+router.route('/:id/rentdetails/drivinglicence').get(isLoggedIn, validateRoute, listingController.renderDlPage)
+router.route('/submit-form').post(isLoggedIn, validateRoute, wrapAsync(listingController.checkDlDetails))
+router.route('/:id/myorders').get(isLoggedIn, validateRoute, wrapAsync(listingController.renderMyOrdersPage))
 
-router.get("/new", isLoggedIn, listingController.renderNewForm);
+router.route('/:id')
+    .get(wrapAsync(listingController.renderSingleList))
+// router.get("/new", isLoggedIn, listingController.renderNewForm);
 // The below code is trying to find the id the listings data base so if you creating any route like /listings/new it will try to find it as an id ans search in the database so we need to write this route below so that there is no error
 
 // router.get('/:id/rent', (req, res) => {
 //     console.log("Rent but")
 //     res.send("Hii")
 // })
-router.route('/:id')
-    .get(wrapAsync(listingController.renderSingleList))
-    .put(isLoggedIn, isOwner, upload.single('listing[image]'), validateListing, wrapAsync(listingController.updateListing))
-    .delete(isLoggedIn, isOwner, wrapAsync(listingController.deleteListing));
 
-router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.editListForm));
+// .put(isLoggedIn, isOwner, upload.single('listing[image]'), validateListing, wrapAsync(listingController.updateListing))
+// .delete(isLoggedIn, isOwner, wrapAsync(listingController.deleteListing));
+
+// router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.editListForm));
 // router.get("/:id/rent", isLoggedIn, wrapAsync(listingController.editListForm));
 
-router.route('/:id/rentdetails').get(isLoggedIn, validateRoute, listingController.renderDetailsPgae).post(isLoggedIn, listingController.submitRenderForm)
+router.route('/:id/rentdetails').get(isLoggedIn, validateRoute, listingController.renderDetailsPgae).post(isLoggedIn, validateRoute, wrapAsync(listingController.submitRenderForm))
 
 module.exports = router;
 

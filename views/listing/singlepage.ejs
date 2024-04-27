@@ -124,7 +124,7 @@
           <span class="title-font text-xl font-bold text-gray-900">
             &#8377;<%= singleList.price.toLocaleString("en-IN") %> /day
           </span>
-          <form action="<%= singleList._id%>/rentdetails" method="get">
+          <form action="/listings/<%= singleList._id%>/rentdetails" method="get">
             <button
               class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
@@ -211,7 +211,7 @@
   </div>
 </div>
 
-<% if(currUser) {%>
+<% if(currUser && currUser.role !== 'renter') {%>
 <div class="singleReviewMain">
   <h4 class="mb-3 text-3xl">Leave a Review</h4>
   <hr />

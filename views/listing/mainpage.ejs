@@ -1,7 +1,7 @@
 <% layout('/layouts/boilerplate') -%>
 
 <div
-  class="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-4"
+  class="mx-auto min-h-[75vh] grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-4"
 >
   <% for(let listing of totalListing) { %> <% if(listing.rentStatus ===
   'unBooked') { %>

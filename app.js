@@ -5,10 +5,11 @@ if (process.env.NODE_ENV != 'production') {
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const mongoUrl = "mongodb://127.0.0.1:27017/wanderlust";
+// const mongoUrl = "mongodb://127.0.0.1:27017/wanderlust";
 const path = require('path');
 const methodOveride = require("method-override");
 const ejsMate = require("ejs-mate");
+const cookieParser = require('cookie-parser');
 const expressError = require('./utils/expressError.js');
 const Razorpay = require('razorpay');
 const crypto = require('crypto');
@@ -25,24 +26,27 @@ let bodyParser = require("body-parser");
 
 
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 
 const passppot = require('passport');
 const localStrategy = require('passport-local');
 const User = require('./models/users.js');
 const Owner = require('./models/owner.js');
+const { error } = require('console');
 
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-app.use(express.urlencoded({ extended: true  }));
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOveride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-
+const dbUrl = process.env.ATLASDB
 
 main().then(() => {
     console.log("Connection Succesfull");
@@ -51,11 +55,23 @@ main().then(() => {
 });
 
 async function main() {
-    await mongoose.connect(mongoUrl);
+    await mongoose.connect(dbUrl);
 }
 
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    crypto: {
+        secret: process.env.DBSEC,
+    },
+    touchAfter: 24 * 3600,
+})
+
+store.on('error', () => {
+    console.log("Error in MONGO SESSION store " + err);
+})
 const sessionOptions = {
-    secret: "mysupersecretstring", resave: false, saveUninitialized: true,
+    store,
+    secret: process.env.DBSEC, resave: false, saveUninitialized: true,
     cookie: {
         expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         maxAge: 7 * 24 * 60 * 60 * 1000,
@@ -63,6 +79,9 @@ const sessionOptions = {
 
     }
 };
+
+
+
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -108,22 +127,6 @@ app.post('/order', async (req, res) => {
 
 })
 
-app.post('/order/validate', async (req, res) => {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
-    res.redirect('/listings/myorders')
-    // const sha = crypto.createHmac("sha256", process.env.RAZORPAY_KEY_SECRET);
-    // sha.update(`${razorpay_order_id}|${razorpay_payment_id}`);
-    // const digest = sha.digest('hex');
-    // if (digest !== razorpay_signature) {
-    //     return res.status(400).json({ msg: "Transaction is not valid !" });
-    // }
-
-    // res.json({
-    //     msg: "success",
-    //     orderId: razorpay_order_id,
-    //     paymentId: razorpay_payment_id,
-    // })
-})
 
 app.use('/listings', listingsRouter);
 app.use('/renter', rentingRouter);
@@ -131,13 +134,10 @@ app.use('/listings/:id/review', reviewRouter);
 app.use('/account', profileRouter);
 app.use('/', usersRouter);
 // If no route matches then i comes here and the page not found error is displayed to the user
-app.all('*', (req, res, next) => {
-    next(new expressError(404, "Page Not Found"))
-})
-
 app.use((err, req, res, next) => {
     let { statuscode = 500, message = "Somthing Went Wrong !" } = err;
     console.log(err.name);
+    console.log(err);
     res.status(statuscode).render("error.ejs", { err });
     // res.status(statuscode).send(message);
 
