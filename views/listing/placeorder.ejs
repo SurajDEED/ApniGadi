@@ -121,7 +121,7 @@
     let amount = multipliedAmount.toString();
     console.log(amount);
     const currency = "INR";
-    const response = await fetch("http://localhost:8080/order", {
+    const response = await fetch("https://apnigadi-1.onrender.com/order", {
       method: "POST",
       body: JSON.stringify({
         amount,
