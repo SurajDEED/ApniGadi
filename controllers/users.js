@@ -98,7 +98,7 @@ module.exports.createRenter = async (req, res, next) => {
 module.exports.verifyOtpPage = async (req, res) => {
     try {
         req.session.otpTimes = req.session.otpTimes + 1;
-        console.log("Entered the of block of otp means this is the first visit")
+        // console.log("Entered the of block of otp means this is the first visit")
         otpGen = otpGenerator.generate(4, { upperCaseAlphabets: false, lowerCaseAlphabets: true, digits: false, specialChars: false });
         console.log(otpGen);
         const otpExpiresAt = new Date(Date.now() + 1 * 60 * 1000);
@@ -110,7 +110,7 @@ module.exports.verifyOtpPage = async (req, res) => {
             from: twilioPhoneNumber,
             to: formattedPhoneNumber
         });
-        console.log("The session data from the otp page is  " + JSON.stringify(req.session.userData));
+        // console.log("The session data from the otp page is  " + JSON.stringify(req.session.userData));
         // if (req.user._id) {
         // console.log("The id from the OPT page is " + req.user._id)
         // const user = await User.findById(req.user._id);
