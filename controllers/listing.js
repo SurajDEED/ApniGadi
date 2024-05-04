@@ -198,22 +198,6 @@ function validateDate(dob) {
 }
 
 
-module.exports.orderPageRender = async (req, res) => {
-    const orderCookie = req.cookies.order;
-    console.log("The order cookiee is " + orderCookie);
-    const orderDet = JSON.parse(orderCookie);
-    console.log(orderDet)
-    let carId = await Listing.findById(orderDet.carId);
-    console.log(carId);
-
-    let owner = await User.findById(orderDet.owner);
-    console.log(owner);
-
-    let customer = await User.findById(orderDet.customer);
-    console.log(customer);
-    res.render('listing/placeorder.ejs', { carId, owner, customer, orderDet, env: process.env });
-}
-
 module.exports.orderConfrim = async (req, res) => {
     console.log("Hiii")
     const orderCookie = req.cookies.order;
@@ -228,15 +212,19 @@ module.exports.orderConfrim = async (req, res) => {
     list.rentStatus = 'booked'
     list.save();
     console.log("Now the new list is" + list)
+    let ownerId = order.owner._id;
+    let customerId = order.customer._id;
+    let renter = await User.findById(ownerId);
+    let customer = await User.findById(customerId);
     const countryCode = '+91';
-    const renterNumber = countryCode + order.owner.mobileNo.toString();
+    const renterNumber = countryCode + renter.mobileNo.toString();
     await twilioClient.messages.create({
         body: `Hi, ${order.owner.name} you have an order from ${order.customer.name}`,
         from: twilioPhoneNumber,
         to: renterNumber
     });
 
-    const customerNumber = countryCode + order.customer.mobileNo.toString();
+    const customerNumber = countryCode + customer.mobileNo.toString();
     await twilioClient.messages.create({
         body: `Hi, ${order.customer.name} your order is placed successfully. We will get back to you shortly. For more updates regarding your car call on  ${order.owner.mobileNo}`,
         from: twilioPhoneNumber,
@@ -245,6 +233,7 @@ module.exports.orderConfrim = async (req, res) => {
 
     res.redirect(`/listings/${order.customer._id}/myorders`)
 }
+
 
 module.exports.razorPayIntegrate = async (req, res) => {
 }
