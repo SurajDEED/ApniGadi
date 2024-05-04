@@ -197,6 +197,22 @@ function validateDate(dob) {
     return ageDifference >= 18;
 }
 
+module.exports.orderPageRender = async (req, res) => {
+    const orderCookie = req.cookies.order;
+    console.log("The order cookiee is " + orderCookie);
+    const orderDet = JSON.parse(orderCookie);
+    console.log(orderDet)
+    let carId = await Listing.findById(orderDet.carId);
+    console.log(carId);
+
+    let owner = await User.findById(orderDet.owner);
+    console.log(owner);
+
+    let customer = await User.findById(orderDet.customer);
+    console.log(customer);
+    res.render('listing/placeorder.ejs', { carId, owner, customer, orderDet, env: process.env });
+}
+
 
 module.exports.orderConfrim = async (req, res) => {
     console.log("Hiii")
