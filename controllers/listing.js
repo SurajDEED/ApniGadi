@@ -235,14 +235,14 @@ module.exports.orderConfrim = async (req, res) => {
     const countryCode = '+91';
     const renterNumber = countryCode + renter.mobileNo.toString();
     await twilioClient.messages.create({
-        body: `Hi, ${order.owner.name} you have an order from ${order.customer.name}`,
+        body: `Hi, ${renter.name} you have an order from ${customer.name}, please contact ${customer.name} PhNo: ${customer.mobileNo} `,
         from: twilioPhoneNumber,
         to: renterNumber
     });
 
     const customerNumber = countryCode + customer.mobileNo.toString();
     await twilioClient.messages.create({
-        body: `Hi, ${order.customer.name} your order is placed successfully. We will get back to you shortly. For more updates regarding your car call on  ${order.owner.mobileNo}`,
+        body: `Hi, ${customer.name} your order is placed successfully. We will get back to you shortly. For more updates regarding your car call on  ${renter.mobileNo}`,
         from: twilioPhoneNumber,
         to: customerNumber
     });
