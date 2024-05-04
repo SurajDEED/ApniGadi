@@ -15,6 +15,8 @@ const sampleListings = [
     carType: 'Convertible Car',
     carEngine: 'Manual',
     fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Maruti Dzire",
@@ -25,13 +27,15 @@ const sampleListings = [
       filename: "dzire_image",
       url: "https://marutisuzukiarenaprodcdn.azureedge.net/-/media/images/maruti/marutisuzuki/car/car-profile-shots/dzire-black.webp",
     },
-    price: 18000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Maharashtra",
     country: "India",
     seater: '5',
     carType: 'Luxury Sports Car',
     carEngine: 'Manual',
     fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Maruti Eeco",
@@ -42,13 +46,15 @@ const sampleListings = [
       filename: "eeco_image",
       url: "https://marutisuzukiarenaprodcdn.azureedge.net/-/media/images/maruti/marutisuzuki/car/car-detail/eeco-launch-nov-2022-new/colors/eeco-color-shot_blue.webp",
     },
-    price: 16000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Tamil Nadu",
     country: "India",
     seater: '8',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'cng'
+    fuelType: 'cng',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Maruti Wagon R",
@@ -59,13 +65,15 @@ const sampleListings = [
       filename: "wagon_r_image",
       url: "https://marutisuzukiarenaprodcdn.azureedge.net/-/media/images/maruti/marutisuzuki/car/car-profile-shots/wagonr-launch-2022/car-colors/metallic-magma-grey_dual.webp",
     },
-    price: 19000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Uttar Pradesh",
     country: "India",
     seater: '5',
     carType: 'Convertible Car',
     carEngine: 'Automatic',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Maruti Fronx",
@@ -76,14 +84,15 @@ const sampleListings = [
       filename: "fronx_image",
       url: "https://nexaprod1.azureedge.net/-/media/feature/nexawebsitecarbrand/flash/brand-color/fronx-color-1500x700-nexa_blue.webp",
     },
-    price: 20000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Gujarat",
     country: "India",
     seater: '5',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Diesel', 
-    rentStatus: 'unBooked'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Maruti Grand Vitara",
@@ -94,13 +103,15 @@ const sampleListings = [
       filename: "grand_vitara_image",
       url: "https://nexaprod4.azureedge.net/-/media/feature/nexawebsitecarbrand/grand-vitara/brand-color/688x360/nexa_blue.webp",
     },
-    price: 25000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Rajasthan",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Maruti Brezza",
@@ -111,13 +122,15 @@ const sampleListings = [
       filename: "brezza_image",
       url: "https://marutisuzukiarenaprodcdn.azureedge.net/-/media/images/maruti/marutisuzuki/car/car-detail/new-brezza-launch-2022/car-profile-shot/splendid-silver-black-roof.webp",
     },
-    price: 23000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Punjab",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Maruti Ertiga",
@@ -128,13 +141,15 @@ const sampleListings = [
       filename: "ertiga_image",
       url: "https://marutisuzukiarenaprodcdn.azureedge.net/-/media/images/maruti/marutisuzuki/car/car-profile-shots/ertiga-new/midnight-black.webp",
     },
-    price: 22000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Telangana",
     country: "India",
     seater: '7',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Maruti Swift",
@@ -145,13 +160,15 @@ const sampleListings = [
       filename: "swift_image",
       url: "https://marutisuzukiarenaprodcdn.azureedge.net/-/media/images/maruti/marutisuzuki/car/car-profile-shots/swift-launch-2021/pearlarcticwhitepearlmetallicmidnightblue.webp",
     },
-    price: 21000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Maharashtra",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Toyota Fortuner",
@@ -162,13 +179,15 @@ const sampleListings = [
       filename: "fortuner_image",
       url: "https://static3.toyotabharat.com/images/showroom/fortuner/fortuner-mmc/car-02.png",
     },
-    price: 35000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Maharashtra",
     country: "India",
     seater: '7',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Diesel'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Toyota Glanza",
@@ -179,13 +198,15 @@ const sampleListings = [
       filename: "glanza_image",
       url: "https://static3.toyotabharat.com/images/showroom/glanza/new/colors/car-dark-grey.png",
     },
-    price: 20000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Karnataka",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
 
   {
@@ -197,13 +218,15 @@ const sampleListings = [
       filename: "innova_crysta_image",
       url: "https://static3.toyotabharat.com/images/showroom/innova-mmc/avant-garde-bronze-1600x600.png",
     },
-    price: 32000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Uttar Pradesh",
     country: "India",
     seater: '7',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Diesel'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Toyota Urban Cruiser",
@@ -214,13 +237,15 @@ const sampleListings = [
       filename: "urban_cruiser_image",
       url: "https://static3.toyotabharat.com/images/showroom/urbancruiser-hyryder/colors/speedy-blue.png",
     },
-    price: 22000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Delhi",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Toyota Vellfire",
@@ -231,13 +256,15 @@ const sampleListings = [
       filename: "vellfire_image",
       url: "https://static3.toyotabharat.com/images/showroom/vellfire/colors/new-vellfire-black.png",
     },
-    price: 45000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Kerala",
     country: "India",
     seater: '7',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "Toyota Yaris",
@@ -248,13 +275,15 @@ const sampleListings = [
       filename: "yaris_image",
       url: "https://scene7.toyota.eu/is/image/toyotaeurope/yaris-premiere-edition-retail-offer:Medium-Landscape?ts=1705419970735&resMode=sharp2&op_usm=1.75,0.3,2,0",
     },
-    price: 23000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Punjab",
     country: "India",
     seater: '5',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "KIA Optima",
@@ -265,13 +294,15 @@ const sampleListings = [
       filename: "optima_image",
       url: "https://www.kia.com/us/content/dam/kia/us/en/vehicles/k5/2024/trims/gt1-pkg/exterior/4f5866/360/34.png/jcr:content/renditions/desktop.png",
     },
-    price: 28000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Maharashtra",
     country: "India",
     seater: '5',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "KIA Sportage",
@@ -282,13 +313,15 @@ const sampleListings = [
       filename: "sportage_image",
       url: "https://www.kia.com/us/content/dam/kia/us/en/vehicles/sportage/2024/trims/x-pro-pres/exterior/101010/360/34.png/jcr:content/renditions/desktop.png",
     },
-    price: 30000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Tamil Nadu",
     country: "India",
     seater: '5',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "KIA Seltos",
@@ -299,13 +332,15 @@ const sampleListings = [
       filename: "seltos_image",
       url: "https://www.kia.com/content/dam/kia2/in/en/images/360vr/seltos/tiw51mc5fhh356/exterior/ewe/04-d.png",
     },
-    price: 25000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Kerala",
     country: "India",
     seater: '5',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "KIA Carnival",
@@ -316,13 +351,15 @@ const sampleListings = [
       filename: "carnival_image",
       url: "https://www.kia.com/us/content/dam/kia/us/en/vehicles/ka4/2024/trims/sxp/exterior/616161/360/32.png/jcr:content/renditions/desktop.png",
     },
-    price: 35000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Karnataka",
     country: "India",
     seater: '7',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Diesel'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "KIA Rio",
@@ -333,13 +370,15 @@ const sampleListings = [
       filename: "rio_image",
       url: "https://www.kia.com/us/content/dam/kia/us/en/vehicles/rio-5-door/2023/trims/s-tech/exterior/f21a27/360/34.png/jcr:content/renditions/desktop.png",
     },
-    price: 22000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Uttar Pradesh",
     country: "India",
     seater: '5',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
 
   {
@@ -351,13 +390,15 @@ const sampleListings = [
       filename: "soul_image",
       url: "https://www.kia.com/us/content/dam/kia/us/en/vehicles/soul/2024/trims/gt-line-designer/exterior/899fb6/360/34.png/jcr:content/renditions/desktop.png",
     },
-    price: 24000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Telangana",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "KIA Telluride",
@@ -368,13 +409,15 @@ const sampleListings = [
       filename: "telluride_image",
       url: "https://www.kia.com/us/content/dam/kia/us/en/vehicles/telluride/2024/trims/sx-prestige-x-pro/exterior/adb4c0/360/32.png/jcr:content/renditions/desktop.png",
     },
-    price: 45000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Rajasthan",
     country: "India",
     seater: '7',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Diesel'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "KIA Forte",
@@ -385,13 +428,15 @@ const sampleListings = [
       filename: "forte_image",
       url: "https://www.kia.com/us/content/dam/kia/us/en/vehicles/forte/2024/trims/gt-mt/exterior/565e6b/360/35.png/jcr:content/renditions/desktop.png",
     },
-    price: 23000, // Price in dollars
+    price: 500, // Price in dollars
     location: "West Bengal",
     country: "India",
     seater: '5',
     carType: 'Convertible Car',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "TATA Harrier",
@@ -402,13 +447,15 @@ const sampleListings = [
       filename: "harrier_image",
       url: "https://s7ap1.scene7.com/is/image/tatamotors/LunarWhite-0-1?$PO-750-500-S$&fit=crop&fmt=png-alpha",
     },
-    price: 25000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Mumbai",
     country: "India",
     seater: '7',
     carType: 'Off-Road Vehicle',
     carEngine: 'Automatic',
-    fuelType: 'Diesel'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "TATA Nexon",
@@ -419,13 +466,15 @@ const sampleListings = [
       filename: "nexon_image",
       url: "https://s7ap1.scene7.com/is/image/tatamotors/DaytonaGrey-0-14?$PO-750-500-S$&fit=crop&fmt=png-alpha",
     },
-    price: 20000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Delhi",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "TATA Altroz",
@@ -436,13 +485,15 @@ const sampleListings = [
       filename: "altroz_image",
       url: "https://s7ap1.scene7.com/is/image/tatamotors/AvenueWhite-0?$PO-750-500-S$&fit=crop&fmt=png-alpha",
     },
-    price: 18000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Bangalore",
     country: "India",
     seater: '5',
     carType: 'Luxury Sports Car',
     carEngine: 'Automatic',
-    fuelType: 'Diesel'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "TATA Safari",
@@ -453,13 +504,15 @@ const sampleListings = [
       filename: "safari_image",
       url: "https://s7ap1.scene7.com/is/image/tatamotors/CosmicGold-0?$PO-750-500-S$&fit=crop&fmt=png-alpha",
     },
-    price: 30000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Chennai",
     country: "India",
     seater: '7',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Diesel'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "TATA Tiago",
@@ -470,13 +523,15 @@ const sampleListings = [
       filename: "tiago_image",
       url: "https://s7ap1.scene7.com/is/image/tatamotors/OpalWhiteDT-0?$PO-750-500-S$&fit=crop&fmt=png-alpha",
     },
-    price: 15000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Kolkata",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Manual',
-    fuelType: 'Petrol'
+    fuelType: 'Petrol',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "TATA Tigor",
@@ -487,13 +542,15 @@ const sampleListings = [
       filename: "tigor_image",
       url: "https://s7ap1.scene7.com/is/image/tatamotors/MagneticRed-0-2?$PO-750-500-S$&fit=crop&fmt=png-alpha",
     },
-    price: 16000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Hyderabad",
     country: "India",
     seater: '4',
     carType: 'Luxury Sports Car',
     carEngine: 'Manual',
-    fuelType: 'Diesel'
+    fuelType: 'Diesel',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
   {
     title: "TATA Nexon EV",
@@ -504,13 +561,15 @@ const sampleListings = [
       filename: "nexon_ev_image",
       url: "https://s7ap1.scene7.com/is/image/tatapassenger/PrestineWhite-0-1?$PO-850-600-S$&fit=crop&fmt=png-alpha",
     },
-    price: 28000, // Price in dollars
+    price: 500, // Price in dollars
     location: "Pune",
     country: "India",
     seater: '5',
     carType: 'Off-Road Vehicle',
     carEngine: 'Automatic',
-    fuelType: 'Electric'
+    fuelType: 'Electric',
+    address: "No.18, 1st Main Cross, Near Wipro Park Opposite Ambur Biryani, 1st Block Koramangala, Koramangala, Bengaluru, Karnataka 560034, India",
+    rentStatus: "unBooked",
   },
 
 ];

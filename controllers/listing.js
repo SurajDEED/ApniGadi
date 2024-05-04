@@ -5,6 +5,11 @@ const Orders = require('../models/orders.js');
 const axios = require('axios');
 const Razorpay = require('razorpay');
 const { DLKEY } = process.env;
+const twilio = require('twilio');
+const accountSid = process.env.TWILIO_SID;
+const authToken = process.env.TWILIO_AUTHTOKEN;
+const twilioClient = twilio(accountSid, authToken);
+const twilioPhoneNumber = process.env.TWILO_NUMBER;
 
 module.exports.index = async (req, res) => {
     const totalListing = await Listing.find({});
@@ -223,6 +228,21 @@ module.exports.orderConfrim = async (req, res) => {
     list.rentStatus = 'booked'
     list.save();
     console.log("Now the new list is" + list)
+    const countryCode = '+91';
+    const renterNumber = countryCode + order.owner.mobileNo.toString();
+    await twilioClient.messages.create({
+        body: `Hi, ${order.owner.name} you have an order from ${order.customer.name}`,
+        from: twilioPhoneNumber,
+        to: renterNumber
+    });
+
+    const customerNumber = countryCode + order.customer.mobileNo.toString();
+    await twilioClient.messages.create({
+        body: `Hi, ${order.customer.name} your order is placed successfully. We will get back to you shortly. For more updates regarding your car call on  ${order.owner.mobileNo}`,
+        from: twilioPhoneNumber,
+        to: customerNumber
+    });
+
     res.redirect(`/listings/${order.customer._id}/myorders`)
 }
 
